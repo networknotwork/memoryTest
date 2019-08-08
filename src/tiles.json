@@ -1,0 +1,22 @@
+[
+    {
+        "id":1,
+        "name":"Red0",
+        "image": "/assets/images/Redcircle.png"
+    },
+    {
+        "id":2,
+        "name":"Blue0",
+        "image":"/assets/images/Bluecircle.png"
+    },
+    {
+        "id":3,
+        "name":"Red1",
+        "image":"/assets/images/Redtriangle.png"
+    },
+    {
+        "id":4,
+        "name":"Blue1",
+        "image":"/assets/images/Bluetriangle.png"
+    }
+]

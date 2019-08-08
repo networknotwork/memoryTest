@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import MemoryTiles from "./components/TilesApp";
+import tiles from "./tiles.json";
+import Wrapper from "./components/wrapper/Wrapper";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+let memoryCards = [];
+let Score = 0;
+let topScore = 0;
+
+class App extends Component {
+  state = {
+    tiles
+  };
+  memoryCheck = id => {
+    if (!memoryCards.includes(id)) {
+      memoryCards.push(id);
+      Score++
+      console.log(memoryCards + " : " + Score);
+      if (Score > topScore) {
+        topScore = Score;
+      }
+    } else {
+      memoryCards = [];
+      Score = 0;
+      console.log(memoryCards);
+    }
+  }
+  render() {
+    return (
+      <div className="container">
+        <div>
+          <h1>Memory Test</h1>
+          <p><strong>Rules: Click on each picture once.</strong></p>
+          <hr />
+          <h3>Score: {Score} | Top Score: {topScore}</h3>
+        </div>
+        <Wrapper>
+          {this.state.tiles.map(tile => (
+            <MemoryTiles
+              id={tile.id}
+              key={tile.id}
+              name={tile.name}
+              image={tile.image}
+              memoryCheck={this.memoryCheck}
+            />
+          ))}
+        </Wrapper>
+      </div>
+    )
+  }
 }
 
 export default App;

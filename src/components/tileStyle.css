@@ -1,0 +1,15 @@
+.tile {
+    border: .5em #000 solid;
+    border-radius: .2em;
+    padding: 5px;
+    height: 180px;
+    width: 180px;
+}
+
+div.thumbnail {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    padding-top: 100%;
+  }
